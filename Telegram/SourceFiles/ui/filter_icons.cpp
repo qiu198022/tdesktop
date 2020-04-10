@@ -135,7 +135,8 @@ const auto kIcons = std::vector<FilterIcons>{
 } // namespace
 
 const FilterIcons &LookupFilterIcon(FilterIcon icon) {
-	Expects(static_cast<int>(icon) < kIcons.size());
+	Expects(static_cast<int>(icon) >= 0
+		&& static_cast<int>(icon) < kIcons.size());
 
 	return kIcons[static_cast<int>(icon)];
 }
