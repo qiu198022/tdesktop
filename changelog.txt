@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2.0.1 (31.03.20)
 
 - Switch between folders using Ctrl+1, ..., Ctrl+8.
@@ -16,6 +17,9 @@
 - Send :virus:, :face_with_thermometer:, :mask:, :face_with_head_bandage:, :sneeze:, :sick:, :soap: or :ambulance: to try out the new animated emoji.
 
 1.9.22 beta (27.03.20)
+=======
+1.9.22 (27.03.20)
+>>>>>>> parent of deb76f38d... Beta version 1.9.22: Fix GCC build.
 =======
 1.9.22 (27.03.20)
 >>>>>>> parent of deb76f38d... Beta version 1.9.22: Fix GCC build.
