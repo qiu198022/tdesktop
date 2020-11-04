@@ -44,7 +44,7 @@ private:
 	MTP::Sender _api;
 	mtpRequestId _requestId = 0;
 
-	List _list;
+	std::vector<Entry> _list;
 	rpl::event_stream<> _listChanges;
 
 	crl::time _lastReceived = 0;

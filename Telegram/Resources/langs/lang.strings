@@ -2436,5 +2436,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 "lng_mac_menu_emoji_and_symbols" = "Emoji & Symbols";
 
 "lng_mac_touchbar_favorite_stickers" = "Favorite stickers";
+"lng_launch_extension_warning" = "此文件带有扩展名，您确定想运行它吗?\n建议你下载杀毒确认没有安全隐患后再运行";
+"lng_launch_extension_notcontact_warning" = "此文件发送者不是您的联系人并且此文件带有扩展名可执行。具有安全隐患，请下载并杀毒后运行!";
 
 // Keys finished
