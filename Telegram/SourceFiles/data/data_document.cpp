@@ -41,6 +41,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #include "boxes/confirm_box.h"
 #include "ui/image/image.h"
 #include "ui/text/text_utilities.h"
+#include "ui/text/format_values.h"
 #include "base/base_file_utilities.h"
 #include "mainwindow.h"
 #include "core/application.h"
@@ -192,25 +193,6 @@ void LaunchWithWarning(
 }
 
 } // namespace
-
-bool fileIsImage(const QString &name, const QString &mime) {
-	QString lowermime = mime.toLower(), namelower = name.toLower();
-	if (lowermime.startsWith(qstr("image/"))) {
-		return true;
-	} else if (namelower.endsWith(qstr(".bmp"))
-		|| namelower.endsWith(qstr(".jpg"))
-		|| namelower.endsWith(qstr(".jpeg"))
-		|| namelower.endsWith(qstr(".gif"))
-		|| namelower.endsWith(qstr(".webp"))
-		|| namelower.endsWith(qstr(".tga"))
-		|| namelower.endsWith(qstr(".tiff"))
-		|| namelower.endsWith(qstr(".tif"))
-		|| namelower.endsWith(qstr(".psd"))
-		|| namelower.endsWith(qstr(".png"))) {
-		return true;
-	}
-	return false;
-}
 
 QString FileNameUnsafe(
 		not_null<Main::Session*> session,
@@ -953,7 +935,7 @@ void DocumentData::finishLoad() {
 		_flags |= Flag::DownloadCancelled;
 		return;
 	}
-	setLocation(FileLocation(_loader->fileName()));
+	setLocation(Core::FileLocation(_loader->fileName()));
 	setGoodThumbnailDataReady();
 	if (const auto media = activeMediaView()) {
 		media->setBytes(_loader->bytes());
@@ -1021,7 +1003,7 @@ void DocumentData::setLoadedInMediaCache(bool loaded) {
 		if (loadedInMediaCache()) {
 			session().local().writeFileLocation(
 				mediaKey(),
-				FileLocation::InMediaCacheLocation());
+				Core::FileLocation::InMediaCacheLocation());
 		} else {
 			session().local().removeFileLocation(mediaKey());
 		}
@@ -1030,7 +1012,7 @@ void DocumentData::setLoadedInMediaCache(bool loaded) {
 }
 
 void DocumentData::setLoadedInMediaCacheLocation() {
-	_location = FileLocation();
+	_location = Core::FileLocation();
 	_flags |= Flag::LoadedInMediaCache;
 }
 
@@ -1058,10 +1040,10 @@ void DocumentData::save(
 				f.write(media->bytes());
 				f.close();
 
-				setLocation(FileLocation(toFile));
+				setLocation(Core::FileLocation(toFile));
 				session().local().writeFileLocation(
 					mediaKey(),
-					FileLocation(toFile));
+					Core::FileLocation(toFile));
 			} else if (l.accessEnable()) {
 				const auto &alreadyName = l.name();
 				if (alreadyName != toFile) {
@@ -1255,7 +1237,7 @@ QByteArray documentWaveformEncode5bit(const VoiceWaveform &waveform) {
 	return result;
 }
 
-const FileLocation &DocumentData::location(bool check) const {
+const Core::FileLocation &DocumentData::location(bool check) const {
 	if (check && !_location.check()) {
 		const auto location = session().local().readFileLocation(mediaKey());
 		const auto that = const_cast<DocumentData*>(this);
@@ -1268,7 +1250,7 @@ const FileLocation &DocumentData::location(bool check) const {
 	return _location;
 }
 
-void DocumentData::setLocation(const FileLocation &loc) {
+void DocumentData::setLocation(const Core::FileLocation &loc) {
 	if (loc.inMediaCache()) {
 		setLoadedInMediaCacheLocation();
 	} else if (loc.check()) {
@@ -1311,7 +1293,7 @@ bool DocumentData::saveFromDataChecked() {
 		return false;
 	}
 	file.close();
-	_location = FileLocation(path);
+	_location = Core::FileLocation(path);
 	session().local().writeFileLocation(mediaKey(), _location);
 	return true;
 }
@@ -1350,6 +1332,15 @@ Image *DocumentData::getReplyPreview(Data::FileOrigin origin) {
 		_replyPreview = std::make_unique<Data::ReplyPreview>(this);
 	}
 	return _replyPreview->image(origin);
+}
+
+bool DocumentData::replyPreviewLoaded() const {
+	if (!hasThumbnail()) {
+		return true;
+	} else if (!_replyPreview) {
+		return false;
+	}
+	return _replyPreview->loaded();
 }
 
 StickerData *DocumentData::sticker() const {
@@ -1533,12 +1524,12 @@ uint8 DocumentData::cacheTag() const {
 
 QString DocumentData::composeNameString() const {
 	if (auto songData = song()) {
-		return ComposeNameString(
+		return Ui::ComposeNameString(
 			_filename,
 			songData->title,
 			songData->performer);
 	}
-	return ComposeNameString(_filename, QString(), QString());
+	return Ui::ComposeNameString(_filename, QString(), QString());
 }
 
 LocationType DocumentData::locationType() const {
@@ -1603,10 +1594,7 @@ bool DocumentData::isAudioFile() const {
 }
 
 bool DocumentData::isSharedMediaMusic() const {
-	if (const auto songData = song()) {
-		return (songData->duration > 0);
-	}
-	return false;
+	return isSong();
 }
 
 bool DocumentData::isVideoFile() const {
@@ -1654,7 +1642,7 @@ void DocumentData::setMaybeSupportsStreaming(bool supports) {
 void DocumentData::recountIsImage() {
 	const auto isImage = !isAnimation()
 		&& !isVideoFile()
-		&& fileIsImage(filename(), mimeString());
+		&& Core::FileIsImage(filename(), mimeString());
 	if (isImage) {
 		_flags |= Flag::ImageType;
 	} else {
@@ -1680,7 +1668,7 @@ void DocumentData::setRemoteLocation(
 				} else if (_location.isEmpty() && loadedInMediaCache()) {
 					session().local().writeFileLocation(
 						mediaKey(),
-						FileLocation::InMediaCacheLocation());
+						Core::FileLocation::InMediaCacheLocation());
 				}
 			}
 		}
@@ -1710,22 +1698,6 @@ void DocumentData::collectLocalData(not_null<DocumentData*> local) {
 		_location = local->_location;
 		session().local().writeFileLocation(mediaKey(), _location);
 	}
-}
-
-QString DocumentData::ComposeNameString(
-		const QString &filename,
-		const QString &songTitle,
-		const QString &songPerformer) {
-	if (songTitle.isEmpty() && songPerformer.isEmpty()) {
-		return filename.isEmpty() ? qsl("Unknown File") : filename;
-	}
-
-	if (songPerformer.isEmpty()) {
-		return songTitle;
-	}
-
-	auto trackTitle = (songTitle.isEmpty() ? qsl("Unknown Track") : songTitle);
-	return songPerformer + QString::fromUtf8(" \xe2\x80\x93 ") + trackTitle;
 }
 
 namespace Data {
