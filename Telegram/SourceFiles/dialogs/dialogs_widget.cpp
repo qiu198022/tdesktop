@@ -1784,7 +1784,9 @@ bool Widget::onCancelSearch() {
 void Widget::onCancelSearchInChat() {
 	cancelSearchRequest();
 	if (_searchInChat) {
-		if (Adaptive::OneColumn() && !controller()->selectingPeer()) {
+		if (Adaptive::OneColumn()
+			&& !controller()->selectingPeer()
+			&& _filter->getLastText().trimmed().isEmpty()) {
 			if (const auto peer = _searchInChat.peer()) {
 				Ui::showPeerHistory(peer, ShowAtUnreadMsgId);
 			//} else if (const auto feed = _searchInChat.feed()) { // #feed
@@ -1795,10 +1797,7 @@ void Widget::onCancelSearchInChat() {
 		}
 		setSearchInChat(Key());
 	}
-	_inner->clearFilter();
-	_filter->clear();
-	_filter->updatePlaceholder();
-	applyFilterUpdate();
+	applyFilterUpdate(true);
 	if (!Adaptive::OneColumn() && !controller()->selectingPeer()) {
 		emit cancelled();
 	}

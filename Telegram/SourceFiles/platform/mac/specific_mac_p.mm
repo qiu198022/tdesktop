@@ -39,8 +39,6 @@ constexpr auto kIgnoreActivationTimeoutMs = 500;
 
 } // namespace
 
-NSImage *qt_mac_create_nsimage(const QPixmap &pm);
-
 using Platform::Q2NSString;
 using Platform::NS2QString;
 
@@ -157,11 +155,13 @@ ApplicationDelegate *_sharedDelegate = nil;
 }
 
 - (void) receiveWakeNote:(NSNotification*)aNotification {
-	if (Core::IsAppLaunched()) {
-		Core::App().checkLocalTime();
+	if (!Core::IsAppLaunched()) {
+		return;
 	}
+	Core::App().checkLocalTime();
 
-	LOG(("Audio Info: -receiveWakeNote: received, scheduling detach from audio device"));
+	LOG(("Audio Info: "
+		"-receiveWakeNote: received, scheduling detach from audio device"));
 	Media::Audio::ScheduleDetachFromDeviceSafe();
 }
 
@@ -212,10 +212,9 @@ void SetApplicationIcon(const QIcon &icon) {
 	if (!icon.isNull()) {
 		auto pixmap = icon.pixmap(1024, 1024);
 		pixmap.setDevicePixelRatio(cRetinaFactor());
-		image = static_cast<NSImage*>(qt_mac_create_nsimage(pixmap));
+		image = Q2NSImage(pixmap.toImage());
 	}
 	[[NSApplication sharedApplication] setApplicationIconImage:image];
-	[image release];
 }
 
 } // namespace Platform
