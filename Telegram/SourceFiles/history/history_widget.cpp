@@ -192,6 +192,7 @@ HistoryWidget::HistoryWidget(
 , _botKeyboardShow(this, st::historyBotKeyboardShow)
 , _botKeyboardHide(this, st::historyBotKeyboardHide)
 , _botCommandStart(this, st::historyBotCommandStart)
+, _screenShotStart(this, st::historyScreenShotStart)
 , _field(
 	this,
 	st::historyComposeField,
@@ -362,7 +363,7 @@ HistoryWidget::HistoryWidget(
 
 	_botKeyboardShow->addClickHandler([=] { toggleKeyboard(); });
 	_botKeyboardHide->addClickHandler([=] { toggleKeyboard(); });
-	_botCommandStart->addClickHandler([=] { startBotCommand(); });
+	_botCommandStart->addClickHandler([=] { screenShotCommand(); });
 
 	_topShadow->hide();
 
@@ -2167,9 +2168,11 @@ void HistoryWidget::updateControlsVisibility() {
 				} else {
 					_botKeyboardShow->hide();
 					if (_cmdStartShown) {
-						_botCommandStart->show();
+						_botCommandStart->hide();
+                        _screenShotStart->show();
 					} else {
 						_botCommandStart->hide();
+                        _screenShotStart->show();
 					}
 				}
 			}
@@ -3792,7 +3795,8 @@ void HistoryWidget::toggleKeyboard(bool manual) {
 		_botKeyboardHide->hide();
 		_botKeyboardShow->hide();
 		if (fieldEnabled) {
-			_botCommandStart->show();
+			_botCommandStart->hide();
+            _screenShotStart->show();
 		}
 		_kbScroll->hide();
 		_kbShown = false;
@@ -3844,6 +3848,9 @@ void HistoryWidget::startBotCommand() {
 		{ qsl("/"), TextWithTags::Tags() },
 		0,
 		Ui::InputField::HistoryAction::NewEntry);
+}
+
+void HistoryWidget::screenShotCommand() {
 }
 
 void HistoryWidget::setMembersShowAreaActive(bool active) {
@@ -3975,6 +3982,7 @@ void HistoryWidget::moveFieldControls() {
 	_botKeyboardHide->moveToRight(right, buttonsBottom); right += _botKeyboardHide->width();
 	_botKeyboardShow->moveToRight(right, buttonsBottom);
 	_botCommandStart->moveToRight(right, buttonsBottom);
+    _screenShotStart->moveToRight(right, buttonsBottom);
 	if (_silent) {
 		_silent->moveToRight(right, buttonsBottom);
 	}
