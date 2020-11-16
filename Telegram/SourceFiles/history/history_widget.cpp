@@ -360,7 +360,8 @@ HistoryWidget::HistoryWidget(
 	_botKeyboardShow->hide();
 	_botKeyboardHide->hide();
 	_botCommandStart->hide();
-
+    _screenShotStart->hide();
+    
 	_botKeyboardShow->addClickHandler([=] { toggleKeyboard(); });
 	_botKeyboardHide->addClickHandler([=] { toggleKeyboard(); });
 	_botCommandStart->addClickHandler([=] { screenShotCommand(); });
@@ -2107,6 +2108,7 @@ void HistoryWidget::updateControlsVisibility() {
 		_botKeyboardShow->hide();
 		_botKeyboardHide->hide();
 		_botCommandStart->hide();
+        _screenShotStart->hide();
 		if (_tabbedPanel) {
 			_tabbedPanel->hide();
 		}
@@ -2133,6 +2135,7 @@ void HistoryWidget::updateControlsVisibility() {
 			_botKeyboardHide->hide();
 			_botCommandStart->hide();
 			_attachToggle->hide();
+            _screenShotStart->hide();
 			if (_silent) {
 				_silent->hide();
 			}
@@ -2168,15 +2171,14 @@ void HistoryWidget::updateControlsVisibility() {
 				} else {
 					_botKeyboardShow->hide();
 					if (_cmdStartShown) {
-						_botCommandStart->hide();
-                        _screenShotStart->show();
+						_botCommandStart->show();
 					} else {
 						_botCommandStart->hide();
-                        _screenShotStart->show();
 					}
 				}
 			}
 			_attachToggle->show();
+            _screenShotStart->show();
 			if (_silent) {
 				_silent->show();
 			}
@@ -2205,6 +2207,7 @@ void HistoryWidget::updateControlsVisibility() {
 		_joinChannel->hide();
 		_muteUnmute->hide();
 		_attachToggle->hide();
+        _screenShotStart->hide();
 		if (_silent) {
 			_silent->hide();
 		}
@@ -2218,6 +2221,7 @@ void HistoryWidget::updateControlsVisibility() {
 		_botKeyboardShow->hide();
 		_botKeyboardHide->hide();
 		_botCommandStart->hide();
+        _screenShotStart->hide();
 		if (_tabbedPanel) {
 			_tabbedPanel->hide();
 		}
@@ -3795,8 +3799,7 @@ void HistoryWidget::toggleKeyboard(bool manual) {
 		_botKeyboardHide->hide();
 		_botKeyboardShow->hide();
 		if (fieldEnabled) {
-			_botCommandStart->hide();
-            _screenShotStart->show();
+			_botCommandStart->show();
 		}
 		_kbScroll->hide();
 		_kbShown = false;
@@ -3974,7 +3977,8 @@ void HistoryWidget::moveFieldControls() {
 
 	auto buttonsBottom = bottom - _attachToggle->height();
 	auto left = 0;
-	_attachToggle->moveToLeft(left, buttonsBottom); left += _attachToggle->width();
+	_attachToggle->moveToLeft(left, buttonsBottom); left += _attachToggle->width()*0.8;
+    _screenShotStart->moveToLeft(left, buttonsBottom);left += _screenShotStart->width();
 	_field->moveToLeft(left, bottom - _field->height() - st::historySendPadding);
 	auto right = st::historySendRight;
 	_send->moveToRight(right, buttonsBottom); right += _send->width();
@@ -3982,7 +3986,8 @@ void HistoryWidget::moveFieldControls() {
 	_botKeyboardHide->moveToRight(right, buttonsBottom); right += _botKeyboardHide->width();
 	_botKeyboardShow->moveToRight(right, buttonsBottom);
 	_botCommandStart->moveToRight(right, buttonsBottom);
-    _screenShotStart->moveToRight(right, buttonsBottom);
+
+    
 	if (_silent) {
 		_silent->moveToRight(right, buttonsBottom);
 	}
@@ -4018,6 +4023,7 @@ void HistoryWidget::updateFieldSize() {
 	auto kbShowShown = _history && !_kbShown && _keyboard->hasMarkup();
 	auto fieldWidth = width() - _attachToggle->width() - st::historySendRight;
 	fieldWidth -= _send->width();
+    fieldWidth -= _screenShotStart->width();
 	fieldWidth -= _tabbedSelectorToggle->width();
 	if (kbShowShown) fieldWidth -= _botKeyboardShow->width();
 	if (_cmdStartShown) fieldWidth -= _botCommandStart->width();
