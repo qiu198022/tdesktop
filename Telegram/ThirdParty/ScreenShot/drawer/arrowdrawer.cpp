@@ -1,5 +1,5 @@
 #include "arrowdrawer.h"
-#include "core/core_system.h"
+#include "../core/core_system.h"
 #include <QPainterPath>
 #include <QtMath>
 

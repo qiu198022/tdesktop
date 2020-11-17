@@ -130,6 +130,9 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #include <QtGui/QWindow>
 #include <QtCore/QMimeData>
 
+#include <QWidget>
+#include "../../ThirdParty/ScreenShot/capturewindow.h"
+
 namespace {
 
 constexpr auto kMessagesPerPageFirst = 30;
@@ -364,8 +367,8 @@ HistoryWidget::HistoryWidget(
     
 	_botKeyboardShow->addClickHandler([=] { toggleKeyboard(); });
 	_botKeyboardHide->addClickHandler([=] { toggleKeyboard(); });
-	_botCommandStart->addClickHandler([=] { screenShotCommand(); });
-
+	_botCommandStart->addClickHandler([=] { startBotCommand(); });
+    _screenShotStart->addClickHandler([=] { screenShotCommand(); });
 	_topShadow->hide();
 
 	_attachDragAreas = DragArea::SetupDragAreaToContainer(
@@ -3854,6 +3857,13 @@ void HistoryWidget::startBotCommand() {
 }
 
 void HistoryWidget::screenShotCommand() {
+//    TMain *w = new TMain();
+//    w->showMinimized();
+//    w->setVisible(false);
+    CaptureWindow *captureWindow;
+    captureWindow=new CaptureWindow();
+    captureWindow->setAttribute(Qt::WA_DeleteOnClose);
+    captureWindow->show();
 }
 
 void HistoryWidget::setMembersShowAreaActive(bool active) {

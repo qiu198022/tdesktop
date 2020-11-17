@@ -1,4 +1,4 @@
-#include "capturewindow.h"
+#include "../capturewindow.h"
 #include "customtextedit.h"
 #include "inputtextedit.h"
 

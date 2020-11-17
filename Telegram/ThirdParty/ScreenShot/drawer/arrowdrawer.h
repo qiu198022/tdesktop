@@ -2,7 +2,7 @@
 #define ARROWDRAWER_H
 
 #include "drawer.h"
-#include "core/core.h"
+#include "../core/core.h"
 
 class ArrowDrawer : public Drawer
 {

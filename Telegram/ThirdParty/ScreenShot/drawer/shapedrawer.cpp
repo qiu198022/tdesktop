@@ -1,5 +1,5 @@
 #include "shapedrawer.h"
-#include "core/core_system.h"
+#include "../core/core_system.h"
 #include <QPainterPath>
 
 ShapeDrawer::ShapeDrawer(const shape_object &object, QPainter &p, QObject *parent)

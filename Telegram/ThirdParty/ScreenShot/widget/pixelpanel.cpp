@@ -1,5 +1,5 @@
 #include "pixelpanel.h"
-#include "capturewindow.h"
+#include "../capturewindow.h"
 #include "pixelwidget.h"
 
 #include <QVBoxLayout>

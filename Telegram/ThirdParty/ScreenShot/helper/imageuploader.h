@@ -2,7 +2,7 @@
 #define IMAGEUPLOADER_H
 
 #include <QThread>
-#include "core/core_system.h"
+#include "../core/core_system.h"
 
 class UploaderThread: public QThread
 {

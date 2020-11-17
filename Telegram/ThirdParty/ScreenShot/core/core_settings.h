@@ -2,7 +2,7 @@
 #define CORE_SETTINGS_H
 
 #include "core.h"
-#include "JSON/include/JsonDocument.h"
+#include "../JSON/include/JsonDocument.h"
 
 using namespace Json;
 
@@ -11,8 +11,8 @@ class core_settings
 public:
     explicit core_settings(const std::string& filename="config.json");
     ~core_settings();
-    Data read(const std::string &,const std::string&);
-    void write(const std::string &,const std::string&,Data);
+    Json::Data read(const std::string &,const std::string&);
+    void write(const std::string &,const std::string&,Json::Data);
     void flush();
 private:
     JsonDocument * pDoc=nullptr;

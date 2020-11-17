@@ -24,8 +24,8 @@ void EraseTool::initUI()
     hBoxLayout->setContentsMargins(qCore->borderPadding()/2,0,qCore->borderPadding()/2,0);
     hBoxLayout->setSpacing(0);
 
-    btnCircleErase=new BaseButton(qCore->svgImagePath()+"erase-rectangular0.png",tr("General erase"),this);
-    btnRegionCircle=new BaseButton(qCore->svgImagePath()+"erase-rectangular.png",tr("Region erase"),this);
+    btnCircleErase=new BaseButton(qCore->svgImagePath()+"erase-rectangular0.svg",tr("General erase"),this);
+    btnRegionCircle=new BaseButton(qCore->svgImagePath()+"erase-rectangular.svg",tr("Region erase"),this);
     combEraseSize=new BaseComboBox(tr("Erase size"),this);
     for(int i=10; i<=50; i+=10) combEraseSize->addItem(QString::number(i));
 

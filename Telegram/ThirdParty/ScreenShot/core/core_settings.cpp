@@ -57,14 +57,14 @@ core_settings::~core_settings()
     if(pDoc) delete pDoc;
 }
 
-Data core_settings::read(const std::string & primaryKey,const std::string& attr)
+Json::Data core_settings::read(const std::string & primaryKey,const std::string& attr)
 {
-    if(!pDoc)return Data();
-    if(!pDoc->object())return Data();
+    if(!pDoc)return Json::Data();
+    if(!pDoc->object())return Json::Data();
     return pDoc->object()->value(primaryKey)->value(attr)->data();
 }
 
-void core_settings::write(const std::string & primaryKey,const std::string& attr,Data data)
+void core_settings::write(const std::string & primaryKey,const std::string& attr,Json::Data data)
 {
     if(!pDoc)return;
     pDoc->object()->value(primaryKey)->value(attr)->setData(data);

@@ -2,7 +2,7 @@
 #define TEXTDRAWER_H
 
 #include "drawer.h"
-#include "core/core.h"
+#include "../core/core.h"
 
 class TextDrawer : public Drawer
 {

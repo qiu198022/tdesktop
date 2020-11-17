@@ -52,10 +52,10 @@ void PenTool::initUI()
     hL_Options->setContentsMargins(0,0,0,0);
     hL_Options->setSpacing(0);
 
-    btnPoint=new BaseButton(qCore->svgImagePath()+QStringLiteral("dots.png"),tr("Point"),this);
-    btnLine=new BaseButton(qCore->svgImagePath()+QStringLiteral("line.png"),tr("Line"),this);
-    btnDashLine=new BaseButton(qCore->svgImagePath()+QStringLiteral("dashline.png"),tr("Dash Line"),this);
-    btnCurve=new BaseButton(qCore->svgImagePath()+QStringLiteral("curve.png"),tr("Curve"),this);
+    btnPoint=new BaseButton(qCore->svgImagePath()+QStringLiteral("dots.svg"),tr("Point"),this);
+    btnLine=new BaseButton(qCore->svgImagePath()+QStringLiteral("line.svg"),tr("Line"),this);
+    btnDashLine=new BaseButton(qCore->svgImagePath()+QStringLiteral("dashline.svg"),tr("Dash Line"),this);
+    btnCurve=new BaseButton(qCore->svgImagePath()+QStringLiteral("curve.svg"),tr("Curve"),this);
 
     hL_Options->addWidget(btnPoint);
     hL_Options->addWidget(btnLine);

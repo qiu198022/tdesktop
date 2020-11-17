@@ -20,6 +20,7 @@ add_subdirectory(lib_lottie)
 add_subdirectory(lib_qr)
 add_subdirectory(lib_webrtc)
 add_subdirectory(codegen)
+add_subdirectory(lib_screenshot)
 
 get_filename_component(src_loc SourceFiles REALPATH)
 get_filename_component(res_loc Resources REALPATH)
@@ -33,6 +34,7 @@ include(cmake/td_mtproto.cmake)
 include(cmake/td_lang.cmake)
 include(cmake/td_scheme.cmake)
 include(cmake/td_ui.cmake)
+include(cmake/lib_screenshot.cmake)
 
 set_target_properties(Telegram PROPERTIES AUTOMOC ON AUTORCC ON)
 
@@ -65,6 +67,7 @@ PRIVATE
     desktop-app::external_auto_updates
     desktop-app::external_openssl
     desktop-app::external_openal
+    desktop-app::lib_screenshot
 )
 
 if (LINUX)

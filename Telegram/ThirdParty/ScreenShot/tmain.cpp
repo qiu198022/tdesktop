@@ -40,7 +40,7 @@ void TMain::init()
     systemTray->setToolTip(tr("Qt screenshot tool"));
     connect(systemTray,&QSystemTrayIcon::activated,this,[&](QSystemTrayIcon::ActivationReason reason){
         if(reason==QSystemTrayIcon::Trigger){
-            showCapatureWindow();
+            //showCapatureWindow();
         }
     });
 
@@ -134,11 +134,11 @@ void TMain::loadConfiguration()
     QString w_settings=QString::fromStdString(__core_settings.read("keymap","w_settings").data1);
     QString w_quit=QString::fromStdString(__core_settings.read("keymap","w_quit").data1);
 
-    if(cap_desktop.trimmed().isEmpty()) cap_desktop="Ctrl+Shift+S";
-    if(cap_desktop_copy.trimmed().isEmpty()) cap_desktop_copy="Ctrl+Shift+C";
-    if(cap_usercontrol.trimmed().isEmpty()) cap_usercontrol="Ctrl+Shift+A";
-    if(w_settings.trimmed().isEmpty()) w_settings="Alt+Shift+S";
-    if(w_quit.trimmed().isEmpty()) w_quit="Alt+Shift+Q";
+    if(cap_desktop.trimmed().isEmpty()) cap_desktop="Cmd+Shift+A";
+    if(cap_desktop_copy.trimmed().isEmpty()) cap_desktop_copy="Cmd+Shift+C";
+    if(cap_usercontrol.trimmed().isEmpty()) cap_usercontrol="F9";
+    if(w_settings.trimmed().isEmpty()) w_settings="F1";
+    if(w_quit.trimmed().isEmpty()) w_quit="Cmd+Shift+Q";
 
     QStringList keymap={cap_desktop,cap_desktop_copy,cap_usercontrol,w_settings,w_quit};
     qCore->setKeymap(keymap);
@@ -210,15 +210,14 @@ void TMain::registerHotkey()
 
 void TMain::captureDesktop()
 {
-//    QString filename=qCore->grabScreen2File();
-//    systemTray->showMessage(tr("QtScreenShot notification"),tr("The image has been saved to a file"));
-//    __LOG__("Capture all desktop",1);
-//    if(qCore->getEnableUpload()){
-//        UploaderThread *th=new UploaderThread(filename);
-//        th->start();
-//        th->wait(10);
-//    }
-    showCapatureWindow();
+    QString filename=qCore->grabScreen2File();
+    systemTray->showMessage(tr("QtScreenShot notification"),tr("The image has been saved to a file"));
+    __LOG__("Capture all desktop",1);
+    if(qCore->getEnableUpload()){
+        UploaderThread *th=new UploaderThread(filename);
+        th->start();
+        th->wait(10);
+    }
 }
 void TMain::captureDesktopWithCopy()
 {

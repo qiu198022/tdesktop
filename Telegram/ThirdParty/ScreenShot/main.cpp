@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
     TMain w;
     w.showMinimized();
-    w.setVisible(true);
+    w.setVisible(false);
 
     return a.exec();
 }

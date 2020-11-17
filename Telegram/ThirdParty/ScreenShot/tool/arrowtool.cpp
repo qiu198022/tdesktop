@@ -18,8 +18,8 @@ void ArrowTool::initUI()
     hBoxlayout->setContentsMargins(qCore->borderPadding()/2,0,qCore->borderPadding()/2,0);
     hBoxlayout->setSpacing(0);
 
-    btnArrow1=new BaseButton(qCore->svgImagePath()+"tri-arrow.png",tr("Triangle Arrow"),this);
-    btnArrow2=new BaseButton(qCore->svgImagePath()+"arrow.png",tr("Line Arrow"),this);
+    btnArrow1=new BaseButton(qCore->svgImagePath()+"tri-arrow.svg",tr("Triangle Arrow"),this);
+    btnArrow2=new BaseButton(qCore->svgImagePath()+"arrow.svg",tr("Line Arrow"),this);
     hBoxlayout->addWidget(btnArrow1);
     hBoxlayout->addWidget(btnArrow2);
     setLayout(hBoxlayout);

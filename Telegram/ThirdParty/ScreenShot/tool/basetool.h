@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QPainter>
-#include "core/core_system.h"
+#include "../core/core_system.h"
 
 class BaseTool : public QWidget
 {

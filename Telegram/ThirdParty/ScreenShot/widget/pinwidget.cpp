@@ -1,5 +1,5 @@
 #include "pinwidget.h"
-#include "core/core_system.h"
+#include "../core/core_system.h"
 #include <QKeyEvent>
 #include <QPainter>
 #include <QShortcut>
@@ -7,7 +7,7 @@
 PinWidget::PinWidget(const QPixmap &pixmap, QWidget *parent) : QWidget(parent),__pixmap(pixmap)
 {
     setWindowTitle(tr("Pin Window"));
-    setWindowIcon(QIcon(":/svg/res/images/logo.png"));
+    setWindowIcon(QIcon(":/svg/res/images/logo.svg"));
     setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
 
     new QShortcut(QKeySequence(Qt::Key_Escape),this,SLOT(closePinWidget()));

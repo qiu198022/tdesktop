@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'settingswindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -590,53 +590,53 @@ public:
 
     void retranslateUi(QWidget *SettingsWindow)
     {
-        SettingsWindow->setWindowTitle(QApplication::translate("SettingsWindow", "Settings", nullptr));
-        lbFont->setText(QApplication::translate("SettingsWindow", "UI font:", nullptr));
-        label_12->setText(QApplication::translate("SettingsWindow", "Language(restart):", nullptr));
-        lbAutoStartup->setText(QApplication::translate("SettingsWindow", "Start on boot(Windows):", nullptr));
+        SettingsWindow->setWindowTitle(QCoreApplication::translate("SettingsWindow", "Settings", nullptr));
+        lbFont->setText(QCoreApplication::translate("SettingsWindow", "UI font:", nullptr));
+        label_12->setText(QCoreApplication::translate("SettingsWindow", "Language(restart):", nullptr));
+        lbAutoStartup->setText(QCoreApplication::translate("SettingsWindow", "Start on boot(Windows):", nullptr));
         cbAutoStartup->setText(QString());
-        label_11->setText(QApplication::translate("SettingsWindow", "Shadow effect:", nullptr));
+        label_11->setText(QCoreApplication::translate("SettingsWindow", "Shadow effect:", nullptr));
         cbShadowEffect->setText(QString());
-        label_13->setText(QApplication::translate("SettingsWindow", "Dot size:", nullptr));
-        groupBox->setTitle(QApplication::translate("SettingsWindow", "UI color", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("SettingsWindow", "General", nullptr));
-        label_3->setText(QApplication::translate("SettingsWindow", "Image quality:", nullptr));
-        txtImageQ->setText(QApplication::translate("SettingsWindow", "100", nullptr));
-        label_4->setText(QApplication::translate("SettingsWindow", "(1-100)", nullptr));
-        label_2->setText(QApplication::translate("SettingsWindow", "Image format:", nullptr));
-        label->setText(QApplication::translate("SettingsWindow", "Save file directory:", nullptr));
-        btnGetSaveDir->setText(QApplication::translate("SettingsWindow", "...", nullptr));
-        label_5->setText(QApplication::translate("SettingsWindow", "Save file format:", nullptr));
+        label_13->setText(QCoreApplication::translate("SettingsWindow", "Dot size:", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("SettingsWindow", "UI color", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("SettingsWindow", "General", nullptr));
+        label_3->setText(QCoreApplication::translate("SettingsWindow", "Image quality:", nullptr));
+        txtImageQ->setText(QCoreApplication::translate("SettingsWindow", "100", nullptr));
+        label_4->setText(QCoreApplication::translate("SettingsWindow", "(1-100)", nullptr));
+        label_2->setText(QCoreApplication::translate("SettingsWindow", "Image format:", nullptr));
+        label->setText(QCoreApplication::translate("SettingsWindow", "Save file directory:", nullptr));
+        btnGetSaveDir->setText(QCoreApplication::translate("SettingsWindow", "...", nullptr));
+        label_5->setText(QCoreApplication::translate("SettingsWindow", "Save file format:", nullptr));
         lbDisplayFmt->setText(QString());
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("SettingsWindow", "Screenshot", nullptr));
-        cbUpload->setText(QApplication::translate("SettingsWindow", "Upload image to smms", nullptr));
-        cbProxy->setText(QApplication::translate("SettingsWindow", "Enable proxy", nullptr));
-        label_14->setText(QApplication::translate("SettingsWindow", "Smms Authorization: ", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("SettingsWindow", "Screenshot", nullptr));
+        cbUpload->setText(QCoreApplication::translate("SettingsWindow", "Upload image to smms", nullptr));
+        cbProxy->setText(QCoreApplication::translate("SettingsWindow", "Enable proxy", nullptr));
+        label_14->setText(QCoreApplication::translate("SettingsWindow", "Smms Authorization: ", nullptr));
         txtAuth->setText(QString());
-        groupBox_2->setTitle(QApplication::translate("SettingsWindow", "Proxy Setting", nullptr));
-        label_17->setText(QApplication::translate("SettingsWindow", "Type: ", nullptr));
-        combType->setItemText(0, QApplication::translate("SettingsWindow", "HTTP", nullptr));
-        combType->setItemText(1, QApplication::translate("SettingsWindow", "SOCKS5", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("SettingsWindow", "Proxy Setting", nullptr));
+        label_17->setText(QCoreApplication::translate("SettingsWindow", "Type: ", nullptr));
+        combType->setItemText(0, QCoreApplication::translate("SettingsWindow", "HTTP", nullptr));
+        combType->setItemText(1, QCoreApplication::translate("SettingsWindow", "SOCKS5", nullptr));
 
-        label_15->setText(QApplication::translate("SettingsWindow", "IP: ", nullptr));
-        txtProxyIP->setText(QApplication::translate("SettingsWindow", "127.0.0.1", nullptr));
-        label_16->setText(QApplication::translate("SettingsWindow", "Port: ", nullptr));
-        txtProxyPort->setText(QApplication::translate("SettingsWindow", "8888", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("SettingsWindow", "Upload", nullptr));
-        label_10->setText(QApplication::translate("SettingsWindow", "Capture desktop:", nullptr));
-        btnDesktop->setText(QApplication::translate("SettingsWindow", "Ctrl+Shift+A", nullptr));
-        label_8->setText(QApplication::translate("SettingsWindow", "Capture desktop and copy:", nullptr));
-        btnDesktopCopy->setText(QApplication::translate("SettingsWindow", "Ctrl+Shift+C", nullptr));
-        label_6->setText(QApplication::translate("SettingsWindow", "General capture:", nullptr));
-        btnFree->setText(QApplication::translate("SettingsWindow", "F1", nullptr));
-        label_9->setText(QApplication::translate("SettingsWindow", "Setting dialog:", nullptr));
-        btnSettings->setText(QApplication::translate("SettingsWindow", "Alt+Shift+S", nullptr));
-        label_7->setText(QApplication::translate("SettingsWindow", "Quit application:", nullptr));
-        btnQuit->setText(QApplication::translate("SettingsWindow", "Alt+Shift+Q", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("SettingsWindow", "Hotkey", nullptr));
-        btnQtAbout->setText(QApplication::translate("SettingsWindow", "About Qt", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("SettingsWindow", "About", nullptr));
-        btnSaveConfig->setText(QApplication::translate("SettingsWindow", "Save configuration", nullptr));
+        label_15->setText(QCoreApplication::translate("SettingsWindow", "IP: ", nullptr));
+        txtProxyIP->setText(QCoreApplication::translate("SettingsWindow", "127.0.0.1", nullptr));
+        label_16->setText(QCoreApplication::translate("SettingsWindow", "Port: ", nullptr));
+        txtProxyPort->setText(QCoreApplication::translate("SettingsWindow", "8888", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QCoreApplication::translate("SettingsWindow", "Upload", nullptr));
+        label_10->setText(QCoreApplication::translate("SettingsWindow", "Capture desktop:", nullptr));
+        btnDesktop->setText(QCoreApplication::translate("SettingsWindow", "Ctrl+Shift+A", nullptr));
+        label_8->setText(QCoreApplication::translate("SettingsWindow", "Capture desktop and copy:", nullptr));
+        btnDesktopCopy->setText(QCoreApplication::translate("SettingsWindow", "Ctrl+Shift+C", nullptr));
+        label_6->setText(QCoreApplication::translate("SettingsWindow", "General capture:", nullptr));
+        btnFree->setText(QCoreApplication::translate("SettingsWindow", "F1", nullptr));
+        label_9->setText(QCoreApplication::translate("SettingsWindow", "Setting dialog:", nullptr));
+        btnSettings->setText(QCoreApplication::translate("SettingsWindow", "Alt+Shift+S", nullptr));
+        label_7->setText(QCoreApplication::translate("SettingsWindow", "Quit application:", nullptr));
+        btnQuit->setText(QCoreApplication::translate("SettingsWindow", "Alt+Shift+Q", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("SettingsWindow", "Hotkey", nullptr));
+        btnQtAbout->setText(QCoreApplication::translate("SettingsWindow", "About Qt", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("SettingsWindow", "About", nullptr));
+        btnSaveConfig->setText(QCoreApplication::translate("SettingsWindow", "Save configuration", nullptr));
     } // retranslateUi
 
 };

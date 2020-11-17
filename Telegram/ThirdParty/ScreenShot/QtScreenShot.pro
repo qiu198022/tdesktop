@@ -9,10 +9,6 @@ CONFIG    += c++17
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-unix{
-CONFIG += x11
-QT += x11extras
-}
 
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -21,9 +17,12 @@ QT += x11extras
 
 include(QHotkey/qhotkey.pri)
 INCLUDEPATH += $$PWD/QHotkey/QHotkey \
-C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
+/opt/X11/include
 
 LIBS += -L$$PWD/QHotkey/QHotkey -lQHotkey
+LIBS += -framework CoreFoundation
+LIBS += -framework Appkit
+LIBS += -framework Cocoa
 
 SOURCES += core/core.cpp\
     core/core_fs_check.cpp \
@@ -119,6 +118,7 @@ TRANSLATIONS = languages/UI_Translation_zh_CN.ts
 TARGET = bin/QtScreenShot
 MOC_DIR += build
 OBJECTS_DIR += build
+OBJECTIVE_SOURCES += CocoaWindowsController.mm
 RCC_DIR += build
 
 unix{

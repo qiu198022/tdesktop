@@ -1,12 +1,8 @@
 #include "activewindow.h"
-#include "core/core_system.h"
-#include <QRect>
-#include <QVector>
-#include <QDebug>
-
+#include "../core/core_system.h"
 #ifdef Q_OS_WIN
 #include <Windows.h>
-#elif defined(Q_OS_LINUX) || defined(Q_OS_UNIX)
+#elif defined(Q_OS_LINUX)
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 void __enum_window(Display*, Window);
@@ -21,10 +17,11 @@ QVector<Rect> ActiveWindow::enum_window()
 {
     rects.clear();
 
-#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
+#if defined (Q_OS_LINUX)
     Display *display=XOpenDisplay(0);
     Window win=XDefaultRootWindow(display);
     __enum_window(display,win);
+#elif defined(Q_OS_DARWIN)
 
 #elif defined(Q_OS_WIN)
     HWND hwnd=::GetWindow(::GetDesktopWindow(),GW_CHILD);
@@ -61,7 +58,7 @@ QVector<Rect> ActiveWindow::enum_window()
 }
 
 
-#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
+#if defined (Q_OS_LINUX)
 
 void __enum_window(Display* display, Window window)
 {

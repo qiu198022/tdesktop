@@ -2,7 +2,7 @@
 #define ERASEDRAWER_H
 
 #include "drawer.h"
-#include "core/core.h"
+#include "../core/core.h"
 
 class EraseDrawer : public Drawer
 {

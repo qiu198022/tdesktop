@@ -28,7 +28,7 @@ SettingsWindow::~SettingsWindow()
 
 void SettingsWindow::initUI()
 {
-    setWindowIcon(QPixmap(qCore->svgImagePath()+QStringLiteral("logo.png")));
+    setWindowIcon(QPixmap(qCore->svgImagePath()+QStringLiteral("logo.svg")));
 
     ui->combImageType->addItems(core::getSupportedImageFormats());
     ui->combImageType->setCurrentIndex(0);
@@ -238,35 +238,35 @@ bool SettingsWindow::eventFilter(QObject * obj, QEvent * event)
 void SettingsWindow::saveConfigurationFile()
 {
     try{
-        __core_settings.write("settings","save_directory",Data(ui->combSaveDir->currentText().toStdString()));
-        __core_settings.write("settings","font_family",Data(ui->combFontFamily->currentText().toStdString()));
-        __core_settings.write("settings","language",Data("",0,ui->combLanguage->currentIndex()==1));
-        __core_settings.write("settings","image_type",Data(ui->combImageType->currentText().toStdString()));
-        __core_settings.write("settings","start_on_boot",Data("",0,ui->cbAutoStartup->isChecked()));
-        __core_settings.write("settings","shadow_effect",Data("",0,ui->cbShadowEffect->isChecked()));
-        __core_settings.write("settings","image_quality",Data("",ui->txtImageQ->text().toInt()));
-        __core_settings.write("settings","dot_size",Data("",ui->txtDotSize->text().toInt()));
-        __core_settings.write("settings","format_string",Data(ui->combFileFormat->currentText().toStdString()));
-        __core_settings.write("settings","border_color",Data(colorBorder->getColor().name().toStdString()));
-        __core_settings.write("settings","ui_color",Data(colorMainUI->getColor().name().toStdString()));
-        __core_settings.write("settings","dot_color",Data(colorDot->getColor().name().toStdString()));
+        __core_settings.write("settings","save_directory",Json::Data(ui->combSaveDir->currentText().toStdString()));
+        __core_settings.write("settings","font_family",Json::Data(ui->combFontFamily->currentText().toStdString()));
+        __core_settings.write("settings","language",Json::Data("",0,ui->combLanguage->currentIndex()==1));
+        __core_settings.write("settings","image_type",Json::Data(ui->combImageType->currentText().toStdString()));
+        __core_settings.write("settings","start_on_boot",Json::Data("",0,ui->cbAutoStartup->isChecked()));
+        __core_settings.write("settings","shadow_effect",Json::Data("",0,ui->cbShadowEffect->isChecked()));
+        __core_settings.write("settings","image_quality",Json::Data("",ui->txtImageQ->text().toInt()));
+        __core_settings.write("settings","dot_size",Json::Data("",ui->txtDotSize->text().toInt()));
+        __core_settings.write("settings","format_string",Json::Data(ui->combFileFormat->currentText().toStdString()));
+        __core_settings.write("settings","border_color",Json::Data(colorBorder->getColor().name().toStdString()));
+        __core_settings.write("settings","ui_color",Json::Data(colorMainUI->getColor().name().toStdString()));
+        __core_settings.write("settings","dot_color",Json::Data(colorDot->getColor().name().toStdString()));
 
-        __core_settings.write("settings","smms_authorization",Data(ui->txtAuth->text().toStdString()));
+        __core_settings.write("settings","smms_authorization",Json::Data(ui->txtAuth->text().toStdString()));
 
-        __core_settings.write("settings","enable_upload",Data("",0.0,ui->cbUpload->isChecked()));
-        __core_settings.write("settings","enable_proxy",Data("",0.0,ui->cbProxy->isChecked()));
+        __core_settings.write("settings","enable_upload",Json::Data("",0.0,ui->cbUpload->isChecked()));
+        __core_settings.write("settings","enable_proxy",Json::Data("",0.0,ui->cbProxy->isChecked()));
         // proxy
-        __core_settings.write("proxies","type",Data(ui->combType->currentIndex()==0?"http":"socks5"));
-        __core_settings.write("proxies","ip",Data(ui->txtProxyIP->text().toStdString()));
-        __core_settings.write("proxies","port",Data("",ui->txtProxyPort->text().toInt()));
+        __core_settings.write("proxies","type",Json::Data(ui->combType->currentIndex()==0?"http":"socks5"));
+        __core_settings.write("proxies","ip",Json::Data(ui->txtProxyIP->text().toStdString()));
+        __core_settings.write("proxies","port",Json::Data("",ui->txtProxyPort->text().toInt()));
 
 
         if(keymap[0].size() && keymap[1].size() && keymap[2].size() && keymap[3].size() && keymap[4].size()){
-            __core_settings.write("keymap","cap_desktop",Data(keymap[0].toStdString()));
-            __core_settings.write("keymap","cap_desktop_copy",Data(keymap[1].toStdString()));
-            __core_settings.write("keymap","cap_usercontrol",Data(keymap[2].toStdString()));
-            __core_settings.write("keymap","w_settings",Data(keymap[3].toStdString()));
-            __core_settings.write("keymap","w_quit",Data(keymap[4].toStdString()));
+            __core_settings.write("keymap","cap_desktop",Json::Data(keymap[0].toStdString()));
+            __core_settings.write("keymap","cap_desktop_copy",Json::Data(keymap[1].toStdString()));
+            __core_settings.write("keymap","cap_usercontrol",Json::Data(keymap[2].toStdString()));
+            __core_settings.write("keymap","w_settings",Json::Data(keymap[3].toStdString()));
+            __core_settings.write("keymap","w_quit",Json::Data(keymap[4].toStdString()));
         }
         __core_settings.flush();
     }catch(JsonException &err){
