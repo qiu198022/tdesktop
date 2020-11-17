@@ -14,7 +14,7 @@ core::core():__penSize(2),__borderWeight(4),__eraseSize(10),__dotSize(12),__Prox
     __normalColor=Qt::white;
     __hoverColor=__widgetBgColor;
 
-    __logoPixmap=QPixmap(svgImagePath()+"logo.svg");
+    __logoPixmap=QPixmap(pngImagePath()+"logo.png");
     resetColor();
 }
 

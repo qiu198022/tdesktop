@@ -28,7 +28,7 @@ SettingsWindow::~SettingsWindow()
 
 void SettingsWindow::initUI()
 {
-    setWindowIcon(QPixmap(qCore->svgImagePath()+QStringLiteral("logo.svg")));
+    setWindowIcon(QPixmap(qCore->pngImagePath()+QStringLiteral("logo.png")));
 
     ui->combImageType->addItems(core::getSupportedImageFormats());
     ui->combImageType->setCurrentIndex(0);

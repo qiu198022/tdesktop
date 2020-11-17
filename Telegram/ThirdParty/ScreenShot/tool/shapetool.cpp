@@ -38,12 +38,12 @@ void ShapeTool::initUI()
             qCore->setPenColor(color);
     });
     hboxL->insertWidget(0,colorPanel);
-    btnBorder=new BaseButton(qCore->svgImagePath()+QStringLiteral("border-rect.svg"),tr("Border"),this);
-    btnFill=new BaseButton(qCore->svgImagePath()+QStringLiteral("filled-circle.svg"),tr("Fill"),this);
-    btnRectangle=new BaseButton(qCore->svgImagePath()+QStringLiteral("rectangular.svg"),tr("Rectangle"),this);
-    btnCircle=new BaseButton(qCore->svgImagePath()+QStringLiteral("circle.svg"),tr("Circle"),this);
-    btnTriangle=new BaseButton(qCore->svgImagePath()+QStringLiteral("triangle.svg"),tr("Triangle"),this);
-    btnRTriangle=new BaseButton(qCore->svgImagePath()+QStringLiteral("rtriangle.svg"),tr("Vertical triangle"),this);
+    btnBorder=new BaseButton(qCore->pngImagePath()+QStringLiteral("border-rect.png"),tr("Border"),this);
+    btnFill=new BaseButton(qCore->pngImagePath()+QStringLiteral("filled-circle.png"),tr("Fill"),this);
+    btnRectangle=new BaseButton(qCore->pngImagePath()+QStringLiteral("rectangular.png"),tr("Rectangle"),this);
+    btnCircle=new BaseButton(qCore->pngImagePath()+QStringLiteral("circle.png"),tr("Circle"),this);
+    btnTriangle=new BaseButton(qCore->pngImagePath()+QStringLiteral("triangle.png"),tr("Triangle"),this);
+    btnRTriangle=new BaseButton(qCore->pngImagePath()+QStringLiteral("rtriangle.png"),tr("Vertical triangle"),this);
     hL_Options->addWidget(btnBorder);
     hL_Options->addWidget(btnFill);
     hL_Options->addWidget(btnRectangle);

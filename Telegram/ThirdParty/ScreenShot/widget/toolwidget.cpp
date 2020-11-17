@@ -22,19 +22,19 @@ void ToolWidget::initUI()
     hboxL->setContentsMargins(qCore->borderPadding()/2,qCore->borderPadding()/2,qCore->borderPadding()/2,qCore->borderPadding()/2);
     hboxL->setSpacing(0);
 
-    btnShape=new BaseButton(qCore->svgImagePath()+QStringLiteral("shape.svg"),tr("shape tool"),this);
-    btnPen=new BaseButton(qCore->svgImagePath()+QStringLiteral("pen.svg"),tr("pen tool"),this);
-    btnText=new BaseButton(qCore->svgImagePath()+QStringLiteral("text.svg"),tr("text tool"),this);
-    btnArrow=new BaseButton(qCore->svgImagePath()+QStringLiteral("arrow.svg"),tr("arrow tool"),this);
-    btnBlur=new BaseButton(qCore->svgImagePath()+QStringLiteral("blur.svg"),tr("blur"),this);
-    btnBrush=new BaseButton(qCore->svgImagePath()+QStringLiteral("brush.svg"),tr("Brush tool"),this);
-    btnErase=new BaseButton(qCore->svgImagePath()+QStringLiteral("erase.svg"),tr("erase tool"),this);
-    btnUndo=new BaseButton(qCore->svgImagePath()+QStringLiteral("undo.svg"),tr("undo"),this,false);
-    btnRedo=new BaseButton(qCore->svgImagePath()+QStringLiteral("redo.svg"),tr("redo"),this,false);
-    btnCancel=new BaseButton(qCore->svgImagePath()+QStringLiteral("cancel.svg"),tr("close"),this,false);
-    btnPin=new BaseButton(qCore->svgImagePath()+QStringLiteral("pin.svg"),tr("pin tool"),this,false);
-    btnSave=new BaseButton(qCore->svgImagePath()+QStringLiteral("save.svg"),tr("save to file"),this,false);
-    btnCopy=new BaseButton(qCore->svgImagePath()+QStringLiteral("copy.svg"),tr("copy to clipboard"),this,false);
+    btnShape=new BaseButton(qCore->pngImagePath()+QStringLiteral("shape.png"),tr("shape tool"),this);
+    btnPen=new BaseButton(qCore->pngImagePath()+QStringLiteral("pen.png"),tr("pen tool"),this);
+    btnText=new BaseButton(qCore->pngImagePath()+QStringLiteral("text.png"),tr("text tool"),this);
+    btnArrow=new BaseButton(qCore->pngImagePath()+QStringLiteral("arrow.png"),tr("arrow tool"),this);
+    btnBlur=new BaseButton(qCore->pngImagePath()+QStringLiteral("blur.png"),tr("blur"),this);
+    btnBrush=new BaseButton(qCore->pngImagePath()+QStringLiteral("brush.png"),tr("Brush tool"),this);
+    btnErase=new BaseButton(qCore->pngImagePath()+QStringLiteral("erase.png"),tr("erase tool"),this);
+    btnUndo=new BaseButton(qCore->pngImagePath()+QStringLiteral("undo.png"),tr("undo"),this,false);
+    btnRedo=new BaseButton(qCore->pngImagePath()+QStringLiteral("redo.png"),tr("redo"),this,false);
+    btnCancel=new BaseButton(qCore->pngImagePath()+QStringLiteral("cancel.png"),tr("close"),this,false);
+    btnPin=new BaseButton(qCore->pngImagePath()+QStringLiteral("pin.png"),tr("pin tool"),this,false);
+    btnSave=new BaseButton(qCore->pngImagePath()+QStringLiteral("save.png"),tr("save to file"),this,false);
+    btnCopy=new BaseButton(qCore->pngImagePath()+QStringLiteral("copy.png"),tr("copy to clipboard"),this,false);
 
     hboxL->addWidget(btnShape);
     hboxL->addWidget(btnPen);

@@ -44,10 +44,10 @@ void TextTool::initUI()
     combFontSize->setCurrentIndex(0);
     combFontFamily->setCurrentText(defaultFont.family());
 
-    btnTextBold=new BaseButton(qCore->svgImagePath()+QStringLiteral("bold.svg"),tr("Bold"),this);
-    btnTextUnderline=new BaseButton(qCore->svgImagePath()+QStringLiteral("underline.svg"),tr("Underline"),this);
-    btnTextItalic=new BaseButton(qCore->svgImagePath()+QStringLiteral("italic.svg"),tr("Italic"),this);
-    btnTextStrikeout=new BaseButton(qCore->svgImagePath()+QStringLiteral("strikeout.svg"),tr("StrikeOut"),this);
+    btnTextBold=new BaseButton(qCore->pngImagePath()+QStringLiteral("bold.png"),tr("Bold"),this);
+    btnTextUnderline=new BaseButton(qCore->pngImagePath()+QStringLiteral("underline.png"),tr("Underline"),this);
+    btnTextItalic=new BaseButton(qCore->pngImagePath()+QStringLiteral("italic.png"),tr("Italic"),this);
+    btnTextStrikeout=new BaseButton(qCore->pngImagePath()+QStringLiteral("strikeout.png"),tr("StrikeOut"),this);
     btnColor=new QPushButton(this);
     btnColor->setCursor(Qt::PointingHandCursor);
 
