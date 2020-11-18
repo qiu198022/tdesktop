@@ -3988,7 +3988,7 @@ void HistoryWidget::moveFieldControls() {
 	auto buttonsBottom = bottom - _attachToggle->height();
 	auto left = 0;
 	_attachToggle->moveToLeft(left, buttonsBottom); left += _attachToggle->width()*0.8;
-    _screenShotStart->moveToLeft(left, buttonsBottom);left += _screenShotStart->width();
+    _screenShotStart->moveToLeft(left, buttonsBottom-2);left += _screenShotStart->width();
 	_field->moveToLeft(left, bottom - _field->height() - st::historySendPadding);
 	auto right = st::historySendRight;
 	_send->moveToRight(right, buttonsBottom); right += _send->width();

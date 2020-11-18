@@ -128,8 +128,15 @@ void ToolWidget::on_btnSave2File_clicked()
     }
     captureW->grabSubRegion();
     QString filename=qCore->PixMap2ImageFile(qCore->getPixMap());
-    on_btnCancel_clicked();
-    qCore->getSysTray()->showMessage(tr("QtScreenShot notification"),tr("The image has been saved to a file"));
+    NotificationParams params;
+    params.title = "保存截图到桌面!";
+    params.detailsButtonText = "返回";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    params.callback = [this](){
+        on_btnCancel_clicked();
+    };
+    notificationLayout.AddNotificationWidget(this, params);
+    //qCore->getSysTray()->showMessage(tr("QtScreenShot notification"),tr("The image has been saved to a file"));
 
     if(qCore->getEnableUpload()){
         UploaderThread *th=new UploaderThread(filename);
