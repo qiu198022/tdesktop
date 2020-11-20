@@ -6,6 +6,7 @@
  Handles UI interaction and retrieves window images.
 */
 
+#include <Cocoa/Cocoa.h>;
 
 @interface Controller : NSWindowController
 {

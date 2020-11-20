@@ -7,7 +7,9 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 */
 #include "data/data_document.h"
 
+#include "boxes/confirm_box.h"
 #include "data/data_session.h"
+#include "data/data_user.h"
 #include "data/data_streaming.h"
 #include "data/data_document_media.h"
 #include "data/data_reply_preview.h"
@@ -71,7 +73,7 @@ QString JoinStringList(const QStringList &list, const QString &separator) {
 	return result;
 }
 
-void LaunchWithWarning(
+void LaunchWithWarningNotContact(
 		not_null<Main::Session*> session,
 		const QString &name,
 		HistoryItem *item) {
@@ -97,14 +99,64 @@ void LaunchWithWarning(
 		});
 		return;
 	} else if (!warn) {
+	}
+	const auto box = std::make_shared<QPointer<Ui::BoxContent>>();
+	const auto close = [=] {
+		if (*box) {
+			(*box)->closeBox();
+		}
+	};
+	auto text = isExecutable
+		? tr::lng_launch_exe_warning(
+			lt_extension,
+			rpl::single(Ui::Text::Bold(extension)),
+			Ui::Text::WithEntities)
+		: tr::lng_launch_svg_warning(Ui::Text::WithEntities);
+	*box = Ui::show(Box<InformBox>(
+		tr::lng_launch_extension_notcontact_warning(tr::now),
+		tr::lng_box_ok(tr::now),
+		[=] { close(); }));
+
+}
+
+void LaunchWithWarning(
+	not_null<Main::Session*> session,
+	const QString& name,
+	HistoryItem* item) {
+	const auto isExecutable = Data::IsExecutableName(name);
+	const auto isIpReveal = Data::IsIpRevealingName(name);
+	auto& app = Core::App();
+	const auto warn = [&] {
+		if (item && item->history()->peer->isVerified()) {
+			return false;
+		}
+		return (isExecutable && app.settings().exeLaunchWarning())
+			|| (isIpReveal && app.settings().ipRevealWarning());
+	}();
+	const auto extension = '.' + Data::FileExtension(name);
+	if (Platform::IsWindows() && extension == u"."_q) {
+		// If you launch a file without extension, like "test", in case
+		// there is an executable file with the same name in this folder,
+		// like "test.bat", the executable file will be launched.
+		//
+		// Now we always force an Open With dialog box for such files.
+		crl::on_main([=] {
+			Platform::File::UnsafeShowOpenWith(name);
+			});
+		return;
+	}
+	else if (!warn) {
 		File::Launch(name);
 		return;
 	}
+
+	/*
 	const auto callback = [=, &app](bool checked) {
 		if (checked) {
 			if (isExecutable) {
 				app.settings().setExeLaunchWarning(false);
-			} else if (isIpReveal) {
+			}
+			else if (isIpReveal) {
 				app.settings().setIpRevealWarning(false);
 			}
 			app.saveSettingsDelayed();
@@ -122,6 +174,22 @@ void LaunchWithWarning(
 		tr::lng_launch_exe_dont_ask(tr::now),
 		(isExecutable ? tr::lng_launch_exe_sure : tr::lng_continue)(),
 		callback));
+	*/
+	const auto box = std::make_shared<QPointer<Ui::BoxContent>>();
+	const auto close = [=] {
+		if (*box) {
+			(*box)->closeBox();
+		}
+		File::Launch(name);
+	};
+	auto text = isExecutable
+		? tr::lng_launch_extension_warning(tr::now)
+		: tr::lng_launch_svg_warning(tr::now);
+	*box = Ui::show(Box<ConfirmBox>(
+		text,
+		(isExecutable ? tr::lng_launch_exe_sure(tr::now) : tr::lng_continue(tr::now)),
+		[=] { close(); }));
+
 }
 
 } // namespace
@@ -331,6 +399,24 @@ void DocumentOpenClickHandler::Open(
 				return;
 			}
 		}
+
+		UserId userid = data->session().userId();
+		UserData* pChatUser = context->from()->asUser();
+		UserData* pUser = (UserData *)data->session().data().userLoaded(userid);
+		bool blChatUser = pChatUser->isContact();
+		bool blUser = pUser->isContact();
+		if (pChatUser->phone() == pUser->phone())
+		{
+			LaunchWithWarning(&data->session(), location.name(), context);
+			return;
+		}
+		else if (!blChatUser)
+		{
+			LaunchWithWarningNotContact(&data->session(), location.name(), context);
+			return;
+		}
+
+		
 		LaunchWithWarning(&data->session(), location.name(), context);
 	};
 	const auto media = data->createMediaView();
@@ -1657,17 +1743,17 @@ mpkg pkg scpt scptd xhtm webarchive");
 slp zsh");
 #else // Q_OS_MAC || Q_OS_UNIX
 			qsl("\
-ad ade adp app application appref-ms asp asx bas bat bin cab cdxml cer cfg \
-chi chm cmd cnt com cpl crt csh der diagcab dll drv eml exe fon fxp gadget \
-grp hlp hpj hta htt inf ini ins inx isp isu its jar jnlp job js jse key ksh \
+7zip ace ad ade adp app application appref-ms arj asp asx bas bat bin bz2 cab cdxml cer cfg \
+chi chm cmd cnt com cpl crt csh der diagcab dll dmg drv eml exe fon fxp gadget \
+grp gz hlp hpj hta htt inf ini ins inx isp isu iso its jar jnlp job js jse key ksh \
 lnk local lua mad maf mag mam manifest maq mar mas mat mau mav maw mcf mda \
 mdb mde mdt mdw mdz mht mhtml mjs mmc mof msc msg msh msh1 msh2 msh1xml \
 msh2xml mshxml msi msp mst ops osd paf pcd phar php php3 php4 php5 php7 phps \
 php-s pht phtml pif pl plg pm pod prf prg ps1 ps2 ps1xml ps2xml psc1 psc2 \
-psd1 psm1 pssc pst py py3 pyc pyd pyi pyo pyw pywz pyz rb reg rgs scf scr \
-sct search-ms settingcontent-ms sh shb shs slk sys t tmp u3p url vb vbe vbp \
+psd1 psm1 pssc pst py py3 pyc pyd pyi pyo pyw pywz pyz rar rb reg rgs scf scr \
+sct search-ms settingcontent-ms sh shb shs slk sys tar t tmp u3p url vb vbe vbp \
 vbs vbscript vdx vsmacros vsd vsdm vsdx vss vssm vssx vst vstm vstx vsw vsx \
-vtx website ws wsc wsf wsh xbap xll xnk xs");
+vtx website ws wsc wsf wsh xbap xll xnk xs zip");
 #endif // !Q_OS_MAC && !Q_OS_UNIX
 		const auto list = joined.split(' ');
 		return base::flat_set<QString>(list.begin(), list.end());

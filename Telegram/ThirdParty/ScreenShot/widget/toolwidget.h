@@ -4,6 +4,7 @@
 #include "../tool/basetool.h"
 #include <stack>
 #include "../notifications/NotificationLayout.h"
+
 using std::stack;
 
 class CaptureWindow;

@@ -48,3 +48,6 @@ stage
 /Linux/
 /Telegram/Makefile
 *.*~
+Telegram/ThirdParty/ScreenShot/bin/QtScreenShot.app/Contents/MacOS/QtScreenShot
+Telegram/ThirdParty/ScreenShot/QHotkey/HotkeyTest/HotkeyTest.app/Contents/MacOS/HotkeyTest
+Telegram/ThirdParty/ScreenShot/QHotkey/HotkeyTest/HotkeyTest.app/Contents/MacOS/HotkeyTest

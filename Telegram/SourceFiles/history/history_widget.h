@@ -370,6 +370,7 @@ private:
 	void toggleMuteUnmute();
 	void toggleKeyboard(bool manual = true);
 	void startBotCommand();
+    void screenShotCommand();
 	void hidePinnedMessage();
 	void cancelFieldAreaState();
 	void unblockUser();
@@ -675,6 +676,7 @@ private:
 	object_ptr<Ui::IconButton> _botKeyboardShow;
 	object_ptr<Ui::IconButton> _botKeyboardHide;
 	object_ptr<Ui::IconButton> _botCommandStart;
+    object_ptr<Ui::IconButton> _screenShotStart;
 	object_ptr<Ui::SilentToggle> _silent = { nullptr };
 	object_ptr<Ui::IconButton> _scheduled = { nullptr };
 	const std::unique_ptr<VoiceRecordBar> _voiceRecordBar;

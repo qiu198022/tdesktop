@@ -314,6 +314,10 @@ historyBotCommandStart: IconButton(historyAttach) {
 	icon: icon {{ "send_control_bot_command", historyComposeIconFg }};
 	iconOver: icon {{ "send_control_bot_command", historyComposeIconFgOver }};
 }
+historyScreenShotStart: IconButton(historyAttach) {
+    icon: icon {{ "send_control_screen_shot", historyComposeIconFg }};
+    iconOver: icon {{ "send_control_screen_shot", historyComposeIconFgOver }};
+}
 historyScheduledToggle: IconButton(historyAttach) {
 	icon: icon {
 		{ "send_control_scheduled", historyComposeIconFg },

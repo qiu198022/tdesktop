@@ -56,7 +56,7 @@ SOURCES       = QHotkey/QHotkey/qhotkey.cpp \
 		QHotkey/QHotkey/qhotkey_mac.cpp \
 		core/core.cpp \
 		core/core_fs_check.cpp \
-		core/core_settings.cpp \
+		core/core_settings_ss.cpp \
 		core/core_system.cpp \
 		drawer/drawer.cpp \
 		drawer/arrowdrawer.cpp \
@@ -88,6 +88,10 @@ SOURCES       = QHotkey/QHotkey/qhotkey.cpp \
 		tool/pentool.cpp \
 		helper/textlogger.cpp \
 		main.cpp \
+		notifications/NotificationLayout.cpp \
+		notifications/NotificationWidget.cpp \
+		notifications/Operation.cpp \
+		notifications/Result.cpp \
 		capturewindow.cpp \
 		settingswindow.cpp \
 		JSON/src/JsonDocument.cpp \
@@ -102,6 +106,8 @@ SOURCES       = QHotkey/QHotkey/qhotkey.cpp \
 		build/moc_drawer.cpp \
 		build/moc_imageuploader.cpp \
 		build/moc_tmain.cpp \
+		build/moc_NotificationLayout.cpp \
+		build/moc_NotificationWidget.cpp \
 		build/moc_arrowtool.cpp \
 		build/moc_basetool.cpp \
 		build/moc_erasetool.cpp \
@@ -125,7 +131,7 @@ OBJECTS       = build/qhotkey.o \
 		build/qhotkey_mac.o \
 		build/core.o \
 		build/core_fs_check.o \
-		build/core_settings.o \
+		build/core_settings_ss.o \
 		build/core_system.o \
 		build/drawer.o \
 		build/arrowdrawer.o \
@@ -157,6 +163,10 @@ OBJECTS       = build/qhotkey.o \
 		build/pentool.o \
 		build/textlogger.o \
 		build/main.o \
+		build/NotificationLayout.o \
+		build/NotificationWidget.o \
+		build/Operation.o \
+		build/Result.o \
 		build/capturewindow.o \
 		build/settingswindow.o \
 		build/JsonDocument.o \
@@ -172,6 +182,8 @@ OBJECTS       = build/qhotkey.o \
 		build/moc_drawer.o \
 		build/moc_imageuploader.o \
 		build/moc_tmain.o \
+		build/moc_NotificationLayout.o \
+		build/moc_NotificationWidget.o \
 		build/moc_arrowtool.o \
 		build/moc_basetool.o \
 		build/moc_erasetool.o \
@@ -339,6 +351,7 @@ DIST          = /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/feature
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/toolchain.prf \
@@ -373,7 +386,7 @@ DIST          = /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/feature
 		QHotkey/QHotkey/qhotkey_p.h \
 		core/core.h \
 		core/core_fs_check.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		core/core_system.h \
 		drawer/drawer.h \
 		drawer/arrowdrawer.h \
@@ -386,6 +399,10 @@ DIST          = /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/feature
 		helper/activewindow.h \
 		helper/imageuploader.h \
 		tmain.h \
+		notifications/NotificationLayout.h \
+		notifications/NotificationWidget.h \
+		notifications/Operation.h \
+		notifications/Result.h \
 		tool/arrowtool.h \
 		tool/basetool.h \
 		tool/erasetool.h \
@@ -414,7 +431,7 @@ DIST          = /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/feature
 		QHotkey/QHotkey/qhotkey_mac.cpp \
 		core/core.cpp \
 		core/core_fs_check.cpp \
-		core/core_settings.cpp \
+		core/core_settings_ss.cpp \
 		core/core_system.cpp \
 		drawer/drawer.cpp \
 		drawer/arrowdrawer.cpp \
@@ -446,6 +463,10 @@ DIST          = /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/feature
 		tool/pentool.cpp \
 		helper/textlogger.cpp \
 		main.cpp \
+		notifications/NotificationLayout.cpp \
+		notifications/NotificationWidget.cpp \
+		notifications/Operation.cpp \
+		notifications/Result.cpp \
 		capturewindow.cpp \
 		settingswindow.cpp \
 		JSON/src/JsonDocument.cpp \
@@ -624,6 +645,7 @@ Makefile: QtScreenShot.pro /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mksp
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/toolchain.prf \
@@ -807,6 +829,7 @@ Makefile: QtScreenShot.pro /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mksp
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/qt_config.prf:
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/toolchain.prf:
@@ -857,6 +880,7 @@ bin/QtScreenShot.app/Contents/Resources/empty.lproj:
 bin/QtScreenShot.app/Contents/Info.plist: 
 	@test -d bin/QtScreenShot.app/Contents || mkdir -p bin/QtScreenShot.app/Contents
 	@$(DEL_FILE) bin/QtScreenShot.app/Contents/Info.plist
+
 	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,\$${QMAKE_SHORT_VERSION},1.0,g" -e "s,@FULL_VERSION@,1.0.0,g" -e "s,\$${QMAKE_FULL_VERSION},1.0.0,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" -e "s,@BUNDLEIDENTIFIER@,com.oubao.helloworld.QtScreenShot,g" -e "s,\$${PRODUCT_BUNDLE_IDENTIFIER},com.oubao.helloworld.QtScreenShot,g" -e "s,\$${MACOSX_DEPLOYMENT_TARGET},10.13,g" -e "s,\$${IPHONEOS_DEPLOYMENT_TARGET},,g" -e "s,\$${TVOS_DEPLOYMENT_TARGET},,g" -e "s,\$${WATCHOS_DEPLOYMENT_TARGET},,g" -e "s,@ICON@,,g" -e "s,\$${ASSETCATALOG_COMPILER_APPICON_NAME},,g" -e "s,@EXECUTABLE@,QtScreenShot,g" -e "s,@LIBRARY@,QtScreenShot,g" -e "s,\$${EXECUTABLE_NAME},QtScreenShot,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang/Info.plist.app >bin/QtScreenShot.app/Contents/Info.plist
 
 all: Makefile \
@@ -872,8 +896,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents QHotkey/QHotkey/qhotkey.h QHotkey/QHotkey/QHotkey QHotkey/QHotkey/qhotkey_p.h core/core.h core/core_fs_check.h core/core_settings.h core/core_system.h drawer/drawer.h drawer/arrowdrawer.h drawer/erasedrawer.h drawer/imageblurdrawer.h drawer/pendrawer.h drawer/rectangleblurdrawer.h drawer/shapedrawer.h drawer/textdrawer.h helper/activewindow.h helper/imageuploader.h tmain.h tool/arrowtool.h tool/basetool.h tool/erasetool.h widget/basebutton.h widget/basecombobox.h widget/colorpanel.h widget/colorpicker.h widget/customtextedit.h widget/inputtextedit.h widget/toolwidget.h widget/pixelpanel.h widget/pixelwidget.h widget/separator.h widget/pinwidget.h tool/pentool.h tool/shapetool.h tool/texttool.h helper/textlogger.h capturewindow.h settingswindow.h JSON/include/JsonDocument.h JSON/include/JsonObject.h JSON/include/JsonArray.h JSON/include/JsonConvert.h JSON/include/JsonParser.h $(DISTDIR)/
-	$(COPY_FILE) --parents QHotkey/QHotkey/qhotkey.cpp QHotkey/QHotkey/qhotkey_mac.cpp core/core.cpp core/core_fs_check.cpp core/core_settings.cpp core/core_system.cpp drawer/drawer.cpp drawer/arrowdrawer.cpp drawer/erasedrawer.cpp drawer/imageblurdrawer.cpp drawer/pendrawer.cpp drawer/rectangleblurdrawer.cpp drawer/shapedrawer.cpp drawer/textdrawer.cpp helper/activewindow.cpp helper/imageuploader.cpp tmain.cpp tool/arrowtool.cpp tool/basetool.cpp tool/erasetool.cpp widget/basebutton.cpp widget/basecombobox.cpp widget/colorpanel.cpp widget/colorpicker.cpp widget/customtextedit.cpp widget/toolwidget.cpp widget/inputtextedit.cpp widget/pixelpanel.cpp widget/pixelwidget.cpp widget/separator.cpp widget/pinwidget.cpp tool/shapetool.cpp tool/texttool.cpp tool/pentool.cpp helper/textlogger.cpp main.cpp capturewindow.cpp settingswindow.cpp JSON/src/JsonDocument.cpp JSON/src/JsonObject.cpp JSON/src/JsonArray.cpp JSON/src/JsonConvert.cpp JSON/src/JsonParser.cpp CocoaWindowsController.mm $(DISTDIR)/
+	$(COPY_FILE) --parents QHotkey/QHotkey/qhotkey.h QHotkey/QHotkey/QHotkey QHotkey/QHotkey/qhotkey_p.h core/core.h core/core_fs_check.h core/core_settings_ss.h core/core_system.h drawer/drawer.h drawer/arrowdrawer.h drawer/erasedrawer.h drawer/imageblurdrawer.h drawer/pendrawer.h drawer/rectangleblurdrawer.h drawer/shapedrawer.h drawer/textdrawer.h helper/activewindow.h helper/imageuploader.h tmain.h notifications/NotificationLayout.h notifications/NotificationWidget.h notifications/Operation.h notifications/Result.h tool/arrowtool.h tool/basetool.h tool/erasetool.h widget/basebutton.h widget/basecombobox.h widget/colorpanel.h widget/colorpicker.h widget/customtextedit.h widget/inputtextedit.h widget/toolwidget.h widget/pixelpanel.h widget/pixelwidget.h widget/separator.h widget/pinwidget.h tool/pentool.h tool/shapetool.h tool/texttool.h helper/textlogger.h capturewindow.h settingswindow.h JSON/include/JsonDocument.h JSON/include/JsonObject.h JSON/include/JsonArray.h JSON/include/JsonConvert.h JSON/include/JsonParser.h $(DISTDIR)/
+	$(COPY_FILE) --parents QHotkey/QHotkey/qhotkey.cpp QHotkey/QHotkey/qhotkey_mac.cpp core/core.cpp core/core_fs_check.cpp core/core_settings_ss.cpp core/core_system.cpp drawer/drawer.cpp drawer/arrowdrawer.cpp drawer/erasedrawer.cpp drawer/imageblurdrawer.cpp drawer/pendrawer.cpp drawer/rectangleblurdrawer.cpp drawer/shapedrawer.cpp drawer/textdrawer.cpp helper/activewindow.cpp helper/imageuploader.cpp tmain.cpp tool/arrowtool.cpp tool/basetool.cpp tool/erasetool.cpp widget/basebutton.cpp widget/basecombobox.cpp widget/colorpanel.cpp widget/colorpicker.cpp widget/customtextedit.cpp widget/toolwidget.cpp widget/inputtextedit.cpp widget/pixelpanel.cpp widget/pixelwidget.cpp widget/separator.cpp widget/pinwidget.cpp tool/shapetool.cpp tool/texttool.cpp tool/pentool.cpp helper/textlogger.cpp main.cpp notifications/NotificationLayout.cpp notifications/NotificationWidget.cpp notifications/Operation.cpp notifications/Result.cpp capturewindow.cpp settingswindow.cpp JSON/src/JsonDocument.cpp JSON/src/JsonObject.cpp JSON/src/JsonArray.cpp JSON/src/JsonConvert.cpp JSON/src/JsonParser.cpp CocoaWindowsController.mm $(DISTDIR)/
 	$(COPY_FILE) --parents ui/settingswindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents languages/UI_Translation_zh_CN.ts $(DISTDIR)/
 
@@ -885,6 +909,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r bin/QtScreenShot.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -950,9 +975,11 @@ compiler_moc_predefs_clean:
 build/moc_predefs.h: /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o build/moc_predefs.h /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: build/moc_qhotkey.cpp build/moc_qhotkey_p.cpp build/moc_core_fs_check.cpp build/moc_drawer.cpp build/moc_imageuploader.cpp build/moc_tmain.cpp build/moc_arrowtool.cpp build/moc_basetool.cpp build/moc_erasetool.cpp build/moc_basebutton.cpp build/moc_basecombobox.cpp build/moc_colorpanel.cpp build/moc_colorpicker.cpp build/moc_customtextedit.cpp build/moc_inputtextedit.cpp build/moc_toolwidget.cpp build/moc_pixelpanel.cpp build/moc_pixelwidget.cpp build/moc_separator.cpp build/moc_pinwidget.cpp build/moc_pentool.cpp build/moc_shapetool.cpp build/moc_texttool.cpp build/moc_capturewindow.cpp build/moc_settingswindow.cpp
+
+compiler_moc_header_make_all: build/moc_qhotkey.cpp build/moc_qhotkey_p.cpp build/moc_core_fs_check.cpp build/moc_drawer.cpp build/moc_imageuploader.cpp build/moc_tmain.cpp build/moc_NotificationLayout.cpp build/moc_NotificationWidget.cpp build/moc_arrowtool.cpp build/moc_basetool.cpp build/moc_erasetool.cpp build/moc_basebutton.cpp build/moc_basecombobox.cpp build/moc_colorpanel.cpp build/moc_colorpicker.cpp build/moc_customtextedit.cpp build/moc_inputtextedit.cpp build/moc_toolwidget.cpp build/moc_pixelpanel.cpp build/moc_pixelwidget.cpp build/moc_separator.cpp build/moc_pinwidget.cpp build/moc_pentool.cpp build/moc_shapetool.cpp build/moc_texttool.cpp build/moc_capturewindow.cpp build/moc_settingswindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) build/moc_qhotkey.cpp build/moc_qhotkey_p.cpp build/moc_core_fs_check.cpp build/moc_drawer.cpp build/moc_imageuploader.cpp build/moc_tmain.cpp build/moc_arrowtool.cpp build/moc_basetool.cpp build/moc_erasetool.cpp build/moc_basebutton.cpp build/moc_basecombobox.cpp build/moc_colorpanel.cpp build/moc_colorpicker.cpp build/moc_customtextedit.cpp build/moc_inputtextedit.cpp build/moc_toolwidget.cpp build/moc_pixelpanel.cpp build/moc_pixelwidget.cpp build/moc_separator.cpp build/moc_pinwidget.cpp build/moc_pentool.cpp build/moc_shapetool.cpp build/moc_texttool.cpp build/moc_capturewindow.cpp build/moc_settingswindow.cpp
+	-$(DEL_FILE) build/moc_qhotkey.cpp build/moc_qhotkey_p.cpp build/moc_core_fs_check.cpp build/moc_drawer.cpp build/moc_imageuploader.cpp build/moc_tmain.cpp build/moc_NotificationLayout.cpp build/moc_NotificationWidget.cpp build/moc_arrowtool.cpp build/moc_basetool.cpp build/moc_erasetool.cpp build/moc_basebutton.cpp build/moc_basecombobox.cpp build/moc_colorpanel.cpp build/moc_colorpicker.cpp build/moc_customtextedit.cpp build/moc_inputtextedit.cpp build/moc_toolwidget.cpp build/moc_pixelpanel.cpp build/moc_pixelwidget.cpp build/moc_separator.cpp build/moc_pinwidget.cpp build/moc_pentool.cpp build/moc_shapetool.cpp build/moc_texttool.cpp build/moc_capturewindow.cpp build/moc_settingswindow.cpp
+
 build/moc_qhotkey.cpp: QHotkey/QHotkey/qhotkey.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1074,7 +1101,7 @@ build/moc_tmain.cpp: tmain.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qfont.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		JSON/include/JsonDocument.h \
 		JSON/include/JsonConvert.h \
 		JSON/include/JsonParser.h \
@@ -1096,6 +1123,35 @@ build/moc_tmain.cpp: tmain.h \
 		build/moc_predefs.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc
 	/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc $(DEFINES) --include /Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/build/moc_predefs.h -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/opt/X11/include -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib tmain.h -o build/moc_tmain.cpp
+
+build/moc_NotificationLayout.cpp: notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
+		build/moc_predefs.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc
+	/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc $(DEFINES) --include /Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/build/moc_predefs.h -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/opt/X11/include -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib notifications/NotificationLayout.h -o build/moc_NotificationLayout.cpp
+
+build/moc_NotificationWidget.cpp: notifications/NotificationWidget.h \
+		notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		build/moc_predefs.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc
+	/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc $(DEFINES) --include /Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/build/moc_predefs.h -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/opt/X11/include -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib notifications/NotificationWidget.h -o build/moc_NotificationWidget.cpp
 
 build/moc_arrowtool.cpp: tool/arrowtool.h \
 		tool/basetool.h \
@@ -1448,6 +1504,19 @@ build/moc_toolwidget.cpp: widget/toolwidget.h \
 		helper/textlogger.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		build/moc_predefs.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc
 	/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/bin/moc $(DEFINES) --include /Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/build/moc_predefs.h -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/mkspecs/macx-clang -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/Users/jstyarsenaljstyarsenal/TBuild/tdesktop/Telegram/ThirdParty/ScreenShot/QHotkey/QHotkey -I/opt/X11/include -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers -I/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib widget/toolwidget.h -o build/moc_toolwidget.cpp
@@ -1730,6 +1799,19 @@ build/moc_capturewindow.cpp: capturewindow.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -1771,7 +1853,7 @@ build/moc_settingswindow.cpp: settingswindow.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qfont.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		JSON/include/JsonDocument.h \
 		JSON/include/JsonConvert.h \
 		JSON/include/JsonParser.h \
@@ -1916,7 +1998,7 @@ build/core_fs_check.o: core/core_fs_check.cpp core/core_fs_check.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdir.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/core_fs_check.o core/core_fs_check.cpp
 
-build/core_settings.o: core/core_settings.cpp core/core_settings.h \
+build/core_settings_ss.o: core/core_settings_ss.cpp core/core_settings_ss.h \
 		core/core.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QGraphicsEffect \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
@@ -1960,7 +2042,7 @@ build/core_settings.o: core/core_settings.cpp core/core_settings.h \
 		JSON/include/JsonArray.h \
 		JSON/include/JsonException.h \
 		JSON/include/JsonWriter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/core_settings.o core/core_settings.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/core_settings_ss.o core/core_settings_ss.cpp
 
 build/core_system.o: core/core_system.cpp core/core_system.h \
 		core/core.h \
@@ -2353,7 +2435,7 @@ build/tmain.o: tmain.cpp tmain.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qfont.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		JSON/include/JsonDocument.h \
 		JSON/include/JsonConvert.h \
 		JSON/include/JsonParser.h \
@@ -2392,6 +2474,19 @@ build/tmain.o: tmain.cpp tmain.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -2466,6 +2561,19 @@ build/arrowtool.o: tool/arrowtool.cpp tool/arrowtool.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		widget/toolwidget.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -2569,6 +2677,19 @@ build/erasetool.o: tool/erasetool.cpp tool/erasetool.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		widget/toolwidget.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -2802,6 +2923,19 @@ build/toolwidget.o: widget/toolwidget.cpp widget/toolwidget.h \
 		helper/textlogger.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		helper/imageuploader.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QThread \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
@@ -2823,7 +2957,9 @@ build/toolwidget.o: widget/toolwidget.cpp widget/toolwidget.h \
 		widget/basebutton.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		widget/pinwidget.h
+		widget/pinwidget.h \
+		notifications/NotificationWidget.h \
+		notifications/Result.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/toolwidget.o widget/toolwidget.cpp
 
 build/inputtextedit.o: widget/inputtextedit.cpp capturewindow.h \
@@ -2875,6 +3011,19 @@ build/inputtextedit.o: widget/inputtextedit.cpp capturewindow.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -2937,6 +3086,19 @@ build/pixelpanel.o: widget/pixelpanel.cpp widget/pixelpanel.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		tool/texttool.h \
 		tool/shapetool.h \
@@ -3129,6 +3291,19 @@ build/shapetool.o: tool/shapetool.cpp widget/colorpanel.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -3199,6 +3374,19 @@ build/texttool.o: tool/texttool.cpp widget/customtextedit.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -3269,6 +3457,19 @@ build/pentool.o: tool/pentool.cpp widget/colorpanel.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -3339,12 +3540,82 @@ build/main.o: main.cpp /Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWi
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		tmain.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QMenu \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QAction \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/main.o main.cpp
+
+build/NotificationLayout.o: notifications/NotificationLayout.cpp notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
+		notifications/NotificationWidget.h \
+		notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QEvent \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qcoreevent.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QPropertyAnimation \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qpropertyanimation.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/NotificationLayout.o notifications/NotificationLayout.cpp
+
+build/NotificationWidget.o: notifications/NotificationWidget.cpp notifications/NotificationWidget.h \
+		notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QPropertyAnimation \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qpropertyanimation.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/Qt \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/NotificationWidget.o notifications/NotificationWidget.cpp
+
+build/Operation.o: notifications/Operation.cpp notifications/Operation.h \
+		notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDirIterator \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdiriterator.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Operation.o notifications/Operation.cpp
+
+build/Result.o: notifications/Result.cpp notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Result.o notifications/Result.cpp
+
 
 build/capturewindow.o: capturewindow.cpp drawer/rectangleblurdrawer.h \
 		drawer/drawer.h \
@@ -3409,6 +3680,17 @@ build/capturewindow.o: capturewindow.cpp drawer/rectangleblurdrawer.h \
 		tool/basetool.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		notifications/NotificationLayout.h \
+		Notifications/NotificationWidget.h \
+		Notifications/Result.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QMap \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qmap.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBasicTimer \
+		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbasictimer.h \
 		widget/inputtextedit.h \
 		widget/pixelpanel.h \
 		tool/texttool.h \
@@ -3455,7 +3737,7 @@ build/settingswindow.o: settingswindow.cpp ui_settingswindow.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers/qfont.h \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/jstyarsenaljstyarsenal/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
-		core/core_settings.h \
+		core/core_settings_ss.h \
 		JSON/include/JsonDocument.h \
 		JSON/include/JsonConvert.h \
 		JSON/include/JsonParser.h \
@@ -3588,6 +3870,13 @@ build/moc_imageuploader.o: build/moc_imageuploader.cpp
 
 build/moc_tmain.o: build/moc_tmain.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/moc_tmain.o build/moc_tmain.cpp
+
+
+build/moc_NotificationLayout.o: build/moc_NotificationLayout.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/moc_NotificationLayout.o build/moc_NotificationLayout.cpp
+
+build/moc_NotificationWidget.o: build/moc_NotificationWidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/moc_NotificationWidget.o build/moc_NotificationWidget.cpp
 
 build/moc_arrowtool.o: build/moc_arrowtool.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/moc_arrowtool.o build/moc_arrowtool.cpp
