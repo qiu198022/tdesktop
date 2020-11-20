@@ -2,7 +2,7 @@
 #define TMAIN_H
 
 #include "core/core.h"
-#include "core/core_settings.h"
+#include "core/core_settings_ss.h"
 #include <QSystemTrayIcon>
 #include <QMenu>
 #include <QAction>
@@ -36,7 +36,7 @@ protected slots:
     void captureGWindow();
     void captureDesktop();
 private:
-    core_settings __core_settings;
+    core_settingss __core_settings;
 
     QSystemTrayIcon *systemTray;
     QMenu *menu;

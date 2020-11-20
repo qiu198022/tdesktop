@@ -5,6 +5,8 @@
 #include "pinwidget.h"
 #include <QHBoxLayout>
 #include <QPainter>
+#include "notifications/NotificationWidget.h"
+#include "notifications/Operation.h"
 
 ToolWidget::ToolWidget(QWidget *parent) :
     BaseTool(parent),captureW((CaptureWindow*)parent)

@@ -198,7 +198,7 @@ public:
     int brushOpacity() const {return 60;}
     int blurRadius() const {return 10;}
     int borderPadding() const {return 12;}
-    QString svgImagePath() const {return QStringLiteral(":/res/images/");}
+    QString svgImagePath() const {return QStringLiteral(":/svg/res/images/");}
     QString pngImagePath() const {return QStringLiteral(":/png/res/images/");}
     QString prefix() const {return QStringLiteral("ScreenShot_");}
     QColor maskColor() const {return QColor(0,0,0,170);}

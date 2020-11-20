@@ -2,7 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include "core/core.h"
-#include "core/core_settings.h"
+#include "core/core_settings_ss.h"
 #include "core/core_system.h"
 #include <QWidget>
 
@@ -47,7 +47,7 @@ protected slots:
 private:
     Ui::SettingsWindow *ui;
     core __core;
-    core_settings __core_settings;
+    core_settingss __core_settings;
 
     TMain *__TMain;
     QMap<QString,QString>filefmts;

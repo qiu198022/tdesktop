@@ -3,7 +3,7 @@
 
 #include "../tool/basetool.h"
 #include <stack>
-
+#include "notifications/NotificationLayout.h"
 using std::stack;
 
 class CaptureWindow;
@@ -52,6 +52,8 @@ private:
     BaseButton *btnCancel;
     BaseButton *btnSave;
     BaseButton *btnCopy;
+
+    NotificationLayout notificationLayout;
 };
 
 #endif

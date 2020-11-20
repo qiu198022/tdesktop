@@ -26,7 +26,7 @@ LIBS += -framework Cocoa
 
 SOURCES += core/core.cpp\
     core/core_fs_check.cpp \
-    core/core_settings.cpp\
+    core/core_settings_ss.cpp\
     core/core_system.cpp\
     drawer/drawer.cpp \
     drawer/arrowdrawer.cpp \
@@ -58,6 +58,10 @@ SOURCES += core/core.cpp\
     tool/pentool.cpp\
     helper/textlogger.cpp\
     main.cpp\
+    notifications/NotificationLayout.cpp\
+    notifications/NotificationWidget.cpp\
+    notifications/Operation.cpp\
+    notifications/Result.cpp\
     capturewindow.cpp\
     settingswindow.cpp\
     JSON/src/JsonDocument.cpp\
@@ -68,7 +72,7 @@ SOURCES += core/core.cpp\
 
 HEADERS += core/core.h\
     core/core_fs_check.h \
-    core/core_settings.h\
+    core/core_settings_ss.h\
     core/core_system.h\
     drawer/drawer.h \
     drawer/arrowdrawer.h \
@@ -81,6 +85,10 @@ HEADERS += core/core.h\
     helper/activewindow.h \
     helper/imageuploader.h \
     tmain.h \
+    notifications/NotificationLayout.h\
+    notifications/NotificationWidget.h\
+    notifications/Operation.h\
+    notifications/Result.h\
     tool/arrowtool.h \
     tool/basetool.h \
     tool/erasetool.h \

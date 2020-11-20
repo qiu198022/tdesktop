@@ -1,6 +1,6 @@
-#include "core_settings.h"
+#include "core_settings_ss.h"
 
-core_settings::core_settings(const std::string &filename): config_json_filename(filename)
+core_settingss::core_settingss(const std::string &filename): config_json_filename(filename)
 {
     QString default_config_json=
 R"({
@@ -52,25 +52,25 @@ R"({
     }
 }
 
-core_settings::~core_settings()
+core_settingss::~core_settingss()
 {
     if(pDoc) delete pDoc;
 }
 
-Json::Data core_settings::read(const std::string & primaryKey,const std::string& attr)
+Data core_settingss::read(const std::string & primaryKey,const std::string& attr)
 {
-    if(!pDoc)return Json::Data();
-    if(!pDoc->object())return Json::Data();
+    if(!pDoc)return Data();
+    if(!pDoc->object())return Data();
     return pDoc->object()->value(primaryKey)->value(attr)->data();
 }
 
-void core_settings::write(const std::string & primaryKey,const std::string& attr,Json::Data data)
+void core_settingss::write(const std::string & primaryKey,const std::string& attr,Data data)
 {
     if(!pDoc)return;
     pDoc->object()->value(primaryKey)->value(attr)->setData(data);
 }
 
-void core_settings::flush()
+void core_settingss::flush()
 {
     if(!pDoc)return;
     std::string s=pDoc->toJson();
