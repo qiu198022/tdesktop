@@ -1,0 +1,5 @@
+*[Information] QtScreenShot has started <-> 2020-11-17 11:25:35
+*[Information] Load config.json file <-> 2020-11-17 11:25:35
+*[Information] Application starts successfully!. <-> 2020-11-17 11:25:35
+*[Information] Register hotkey <-> 2020-11-17 11:25:35
+*[Information] QtScreenShot exited! <-> 2020-11-17 11:25:40
